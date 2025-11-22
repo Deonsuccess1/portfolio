@@ -1,10 +1,10 @@
 export const METADATA = {
-  author: "Shubh Porwal",
-  title: "Portfolio | Shubh Porwal",
+  author: "Deon Baiju",
+  title: "Portfolio | Deon Baiju",
   description:
-    "Shubh Porwal is a passionate Frontend Engineer, dedicated to crafting aesthetic and modern apps that captivate and engage users.",
-  siteUrl: "https://www.shubhporwal.me/",
-  twitterHandle: "@shubhporwal24",
+    "Deon Baiju is a frontend engineer focused on building aesthetic, modern, and accessible web experiences.",
+  siteUrl: "https://your-site.example.com/",
+  twitterHandle: "@yourhandle",
   keywords: [
     "Shubh Porwal",
     "Frontend Engineer",
@@ -30,14 +30,6 @@ export const MENULINKS = [
     ref: "skills",
   },
   {
-    name: "Projects",
-    ref: "projects",
-  },
-  {
-    name: "Work",
-    ref: "work",
-  },
-  {
     name: "Contact",
     ref: "contact",
   },
@@ -45,30 +37,30 @@ export const MENULINKS = [
 
 export const TYPED_STRINGS = [
   "A pragmatic Frontend Engineer",
-  "I build things for the web",
-  "I create aesthetic and modern apps",
+  "I build accessible and modern web experiences",
+  "I enjoy design-driven engineering",
 ];
 
 export const SOCIAL_LINKS = [
   {
     name: "mail",
-    url: "mailto: shubhporwal73@gmail.com",
+    url: "mailto:your-email@example.com",
   },
   {
     name: "linkedin",
-    url: "https://www.linkedin.com/in/shubhporwal/",
+    url: "https://www.linkedin.com/in/your-linkedin/",
   },
   {
     name: "github",
-    url: "https://github.com/shubh73",
+    url: "https://github.com/your-github",
   },
   {
     name: "instagram",
-    url: "https://www.instagram.com/shubhii73/",
+    url: "https://www.instagram.com/your-instagram/",
   },
   {
     name: "twitter",
-    url: "https://x.com/shubhporwal24",
+    url: "https://x.com/your-twitter",
   },
 ];
 
