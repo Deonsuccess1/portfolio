@@ -3,8 +3,8 @@ export const METADATA = {
   title: "Portfolio | Deon Baiju",
   description:
     "Deon Baiju is a frontend engineer focused on building aesthetic, modern, and accessible web experiences.",
-  siteUrl: "https://your-site.example.com/",
-  twitterHandle: "@yourhandle",
+  siteUrl: "https://deonbaiju.dev",
+  twitterHandle: "@deonsuccess1",
   keywords: [
     "Shubh Porwal",
     "Frontend Engineer",
@@ -14,8 +14,7 @@ export const METADATA = {
     "Devfolio",
     "Folio",
   ].join(", "),
-  image:
-    "https://res.cloudinary.com/dywdhyojt/image/upload/v1721378510/social-preview.png",
+  image: "/preview.png",
   language: "English",
   themeColor: "#000000",
 };
@@ -44,23 +43,23 @@ export const TYPED_STRINGS = [
 export const SOCIAL_LINKS = [
   {
     name: "mail",
-    url: "mailto:your-email@example.com",
+    url: "mailto:deonbaiju878@gmail.com",
   },
   {
     name: "linkedin",
-    url: "https://www.linkedin.com/in/your-linkedin/",
+    url: "https://www.linkedin.com/in/deon-baiju-653a5131a",
   },
   {
     name: "github",
-    url: "https://github.com/your-github",
+    url: "https://github.com/deonsuccess1",
   },
   {
     name: "instagram",
-    url: "https://www.instagram.com/your-instagram/",
+    url: "https://www.instagram.com/deon.baiju",
   },
   {
     name: "twitter",
-    url: "https://x.com/your-twitter",
+    url: "https://x.com/deonsuccess1",
   },
 ];
 
