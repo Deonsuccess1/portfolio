@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import audio from "../../../public/sounds/song.mp3";
+import audio from "../../../public/sounds/tu.mp3.mp3";
 
 const SoundBar = () => {
   const soundBarEl = useRef(null);
