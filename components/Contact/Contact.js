@@ -1,13 +1,47 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Toaster, toast } from "react-hot-toast";
+import mail from "./mailer";
 import Button from "../Button/Button";
 import { MENULINKS } from "../../constants";
+import styles from "./Contact.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const sectionRef = useRef(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSending, setIsSending] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error("Please fill all fields");
+      return;
+    }
+
+    setIsSending(true);
+    try {
+      await mail(formData);
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
+  };
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "none" } });
@@ -29,14 +63,13 @@ const Contact = () => {
     return () => tl.kill();
   }, []);
 
-  const mailto = `mailto:deonbaiju878@gmail.com?subject=Contact%20from%20Website`;
-
   return (
     <section
       ref={sectionRef}
       id={MENULINKS[2].ref}
       className="mt-30 w-full relative select-none bg-black pt-20 sm:pt-10 md:pt-5 lg:pt-1 pb-20"
     >
+      <Toaster />
       <div className="section-container flex flex-col justify-center">
         <div className="flex flex-col contact-wrapper">
           <div className="flex flex-col">
@@ -53,10 +86,40 @@ const Contact = () => {
         </div>
 
         <div className="pt-10 sm:mx-auto sm:w-[30rem] md:w-[35rem] staggered-reveal text-center">
-          <p className="mb-6">Or email me directly at <a className="link" href="mailto:deonbaiju878@gmail.com">deonbaiju878@gmail.com</a></p>
-          <Button href={mailto} classes="link" type="primary">
-            Email Me
-          </Button>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <input
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Name"
+              className={styles.input}
+              required
+            />
+            <input
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              type="email"
+              className={styles.input}
+              required
+            />
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Message"
+              className={styles.textarea}
+              required
+            />
+            <Button
+              onClick={handleSubmit}
+              classes={`link ${isSending ? "opacity-50 cursor-not-allowed" : ""}`}
+              type="primary"
+            >
+              {isSending ? "Sending..." : "Send Message"}
+            </Button>
+          </form>
         </div>
       </div>
     </section>
